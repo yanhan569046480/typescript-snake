@@ -7,12 +7,14 @@ class GameControl {
     food: Food;
     scorePanel: ScorePanel;
     direction: string = 'Right';
-    isLive = true;
+    isLive: boolean = true;
 
     constructor() {
         this.snake = new Snake();
         this.food = new Food();
         this.scorePanel = new ScorePanel(10, 2);
+
+        this.init();
     }
 
     init(){
@@ -23,8 +25,6 @@ class GameControl {
 
     keydownHandler(event: KeyboardEvent){
         this.direction = event.key;
-
-        this.run();
     }
 
     run(){
